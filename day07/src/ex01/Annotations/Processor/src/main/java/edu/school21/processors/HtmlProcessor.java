@@ -50,18 +50,18 @@ public class HtmlProcessor extends AbstractProcessor {
                 .createResource(StandardLocation.CLASS_OUTPUT, "",
                         form.fileName());
 
-        try (PrintWriter out = new PrintWriter(builderFile.openWriter())) {
-            out.println("<form action = \"" + form.action()
+        try (PrintWriter printWriter = new PrintWriter(builderFile.openWriter())) {
+            printWriter.println("<form action = \"" + form.action()
                     + "\" method = \"" + form.method() + "\">");
 
             for (Annotation annotation : fields) {
                 HtmlInput input = (HtmlInput) annotation;
-                out.println("<input type = \"" + input.type()
+                printWriter.println("<input type = \"" + input.type()
                         + "\" name = \"" + input.name()
                         + "\" placeholder = \"" + input.placeholder() + "\">");
             }
-            out.println("<input type = \"submit\" value = \"Send\">");
-            out.println("</form>");
+            printWriter.println("<input type = \"submit\" value = \"Send\">");
+            printWriter.println("</form>");
         }
     }
 }

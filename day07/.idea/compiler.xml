@@ -9,5 +9,8 @@
         <module name="Reflection" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="Reflection" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
 </project>
