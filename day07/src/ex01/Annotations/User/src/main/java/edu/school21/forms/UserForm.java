@@ -1,7 +1,7 @@
-package edu.school21.reflection.forms;
+package edu.school21.forms;
 
-import edu.school21.reflection.annotations.HtmlForm;
-import edu.school21.reflection.annotations.HtmlInput;
+import edu.school21.annotations.HtmlForm;
+import edu.school21.annotations.HtmlInput;
 
 @HtmlForm(fileName = "user_form.html", action = "/users", method = "post")
 public class UserForm {

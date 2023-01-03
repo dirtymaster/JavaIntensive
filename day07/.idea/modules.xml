@@ -2,6 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/src/ex01/Annotations/Annotations.iml" filepath="$PROJECT_DIR$/src/ex01/Annotations/Annotations.iml" />
+      <module fileurl="file://$PROJECT_DIR$/src/ex02/ORM/ORM.iml" filepath="$PROJECT_DIR$/src/ex02/ORM/ORM.iml" />
+      <module fileurl="file://$PROJECT_DIR$/src/ex01/Annotations/Processor/Processor.iml" filepath="$PROJECT_DIR$/src/ex01/Annotations/Processor/Processor.iml" />
+      <module fileurl="file://$PROJECT_DIR$/src/ex00/Reflection/Reflection.iml" filepath="$PROJECT_DIR$/src/ex00/Reflection/Reflection.iml" />
+      <module fileurl="file://$PROJECT_DIR$/src/ex01/Annotations/User/User.iml" filepath="$PROJECT_DIR$/src/ex01/Annotations/User/User.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/day07.iml" filepath="$PROJECT_DIR$/.idea/day07.iml" />
     </modules>
   </component>

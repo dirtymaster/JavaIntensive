@@ -1,4 +1,4 @@
-package edu.school21.reflection.annotations;
+package edu.school21.annotations;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

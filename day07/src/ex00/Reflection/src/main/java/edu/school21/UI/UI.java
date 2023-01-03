@@ -3,16 +3,14 @@ package edu.school21.UI;
 import java.lang.reflect.*;
 import java.util.*;
 
-import edu.school21.classes.*;
-
 public class UI {
-    private static Set<String> classesNames = new HashSet<>();
-    private static Scanner scanner = new Scanner(System.in);
+    private static final Set<String> classesNames = new HashSet<>();
+    private static final Scanner scanner = new Scanner(System.in);
     private static Class currentClass;
     private static Field[] fields;
-    private static List<Object> argumentsOfConstructor = new ArrayList<>();
+    private static final List<Object> argumentsOfConstructor = new ArrayList<>();
     private static Class<?>[] parametersTypes;
-    private static List<Object> parameters = new ArrayList<>();
+    private static final List<Object> parameters = new ArrayList<>();
     private static Object currentObject;
 
     public static void main(String[] args) {
@@ -199,7 +197,7 @@ public class UI {
                 for (int i = 0; i < argumentsOfConstructor.size(); ++i) {
                     argumentsOfConstructor.set(i, fields[i].get(currentObject));
                 }
-            } catch (Exception e) {
+            } catch (Exception ignored) {
             }
 
             System.out.print(
@@ -228,25 +226,30 @@ public class UI {
         for (String parametersTypeName : parametersTypesNames) {
             Class class_ = null;
             try {
-                if (parametersTypeName.equals("int")
-                        || parametersTypeName.equals("Integer")) {
-                    System.out.println("Enter int value:");
-                    parameters.add(scanner.nextInt());
-                } else if (parametersTypeName.equals("boolean")
-                        || parametersTypeName.equals("Boolean")) {
-                    System.out.println("Enter boolean value:");
-                    parameters.add(scanner.nextBoolean());
-                } else if (parametersTypeName.equals("double")
-                        || parametersTypeName.equals("Double")) {
-                    System.out.println("Enter double value:");
-                    parameters.add(scanner.nextDouble());
-                } else if (parametersTypeName.equals("String")) {
-                    System.out.println("Enter String value:");
-                    parameters.add(scanner.nextLine());
-                } else {
-                    System.err.println("The type '" + class_.getSimpleName()
-                            + "' is not supported");
-                    System.exit(1);
+                switch (parametersTypeName) {
+                    case "int":
+                    case "Integer":
+                        System.out.println("Enter int value:");
+                        parameters.add(scanner.nextInt());
+                        break;
+                    case "boolean":
+                    case "Boolean":
+                        System.out.println("Enter boolean value:");
+                        parameters.add(scanner.nextBoolean());
+                        break;
+                    case "double":
+                    case "Double":
+                        System.out.println("Enter double value:");
+                        parameters.add(scanner.nextDouble());
+                        break;
+                    case "String":
+                        System.out.println("Enter String value:");
+                        parameters.add(scanner.nextLine());
+                        break;
+                    default:
+                        System.err.println("The type '" + class_.getSimpleName()
+                                + "' is not supported");
+                        System.exit(1);
                 }
             } catch (Exception e) {
                 System.err.println("Invalid parameter");

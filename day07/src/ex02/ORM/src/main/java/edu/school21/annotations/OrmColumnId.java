@@ -6,9 +6,6 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 @Target(ElementType.FIELD)
-@Retention(RetentionPolicy.SOURCE)
-public @interface HtmlInput {
-    String type();
-    String name();
-    String placeholder();
+@Retention(RetentionPolicy.RUNTIME)
+public @interface OrmColumnId {
 }

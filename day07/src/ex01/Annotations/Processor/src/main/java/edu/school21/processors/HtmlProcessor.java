@@ -1,8 +1,8 @@
-package edu.school21.reflection.processors;
+package edu.school21.processors;
 
 import com.google.auto.service.AutoService;
-import edu.school21.reflection.annotations.HtmlForm;
-import edu.school21.reflection.annotations.HtmlInput;
+import edu.school21.annotations.HtmlForm;
+import edu.school21.annotations.HtmlInput;
 
 import javax.annotation.processing.*;
 import javax.lang.model.SourceVersion;

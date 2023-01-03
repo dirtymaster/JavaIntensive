@@ -40,7 +40,7 @@
                     <encoding>UTF-8</encoding>
                     <annotationProcessors>
                         <annotationProcessor>
-                            edu.school21.reflection.processors.HtmlProcessor
+                            edu.school21.processors.HtmlProcessor
                         </annotationProcessor>
                     </annotationProcessors>
                 </configuration>

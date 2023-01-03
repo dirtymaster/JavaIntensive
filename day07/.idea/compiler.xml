@@ -7,10 +7,23 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="Reflection" />
+        <module name="Processor" />
+        <module name="ORM" />
+      </profile>
+      <profile name="Annotation profile for Annotations" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processor name="edu.school21.processors.HtmlProcessor" />
+        <module name="User" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="Annotations" target="1.8" />
+      <module name="ORM" target="1.8" />
+      <module name="Processor" target="1.8" />
       <module name="Reflection" target="1.8" />
+      <module name="User" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
