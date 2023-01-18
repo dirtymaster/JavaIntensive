@@ -1,7 +1,7 @@
 package ex01;
 
 public class User {
-    private Integer id;
+    private final Integer id;
     private String name;
     private Integer remainingFunds;
 

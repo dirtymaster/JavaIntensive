@@ -1,5 +1,8 @@
 package ex04;
 
+import ex04.transactions.Transaction;
+import ex04.transactions.TransactionsService;
+
 public class Program {
     public static void main(String[] args) throws IllegalAccessException {
         TransactionsService transactionsService = new TransactionsService();

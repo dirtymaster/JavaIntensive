@@ -3,14 +3,12 @@ package ex04;
 import java.util.Scanner;
 
 public class Program {
-    private static Scanner scanner = new Scanner(System.in);
-    private static String string;
+    private static final Scanner scanner = new Scanner(System.in);
 
-    private static int[] arr = new int[65535];
+    private static final int[] arr = new int[65535];
     private static int max = 0;
 
-    private static String[] string_arr = new String[65535];
-    private static int count_of_symbols = 0;
+    private static final String[] string_arr = new String[65535];
 
     public static void main(String[] args) {
         parseString();
@@ -23,11 +21,9 @@ public class Program {
     }
 
     private static void parseString() {
-        string = scanner.nextLine();
+        String string = scanner.nextLine();
         string = string.substring(0, string.length() - 2);
-        for (int tmp : arr) {
-            tmp = 0;
-        }
+
         for (char c : string.toCharArray()) {
             arr[c] += 1;
             if (arr[c] > max) {
@@ -51,7 +47,6 @@ public class Program {
                     }
                 }
                 string_arr[i] = new String(char_arr);
-                ++count_of_symbols;
             } else {
                 string_arr[i] = null;
             }
@@ -75,19 +70,17 @@ public class Program {
 
     private static void output() {
         for (int i = max / 4 + 1; i >= 0; --i) {
-            for (int j = 0; j < arr.length; ++j) {
+            for (int j = 0; j < arr.length && j < 10; ++j) {
                 if (string_arr[j] != null) {
-                    if ((int) string_arr[j].toCharArray()[max / 4 + 2] > 1) {
-                        if (string_arr[j].toCharArray()[i] == ' '
-                                && (string_arr[j].toCharArray()[i - 1] == '#'
-                                || i == 1)) {
-                            System.out.print(String.format("%2d",
-                                    (int) string_arr[j].toCharArray()
-                                            [max / 4 + 2]) + "  ");
-                        } else {
-                            System.out.print(" "
-                                    + string_arr[j].toCharArray()[i] + "  ");
-                        }
+                    if (string_arr[j].toCharArray()[i] == ' '
+                            && (string_arr[j].toCharArray()[i - 1] == '#'
+                            || i == 1)) {
+                        System.out.print(String.format("%2d",
+                                (int) string_arr[j].toCharArray()
+                                        [max / 4 + 2]) + "  ");
+                    } else {
+                        System.out.print(" "
+                                + string_arr[j].toCharArray()[i] + "  ");
                     }
                 }
             }

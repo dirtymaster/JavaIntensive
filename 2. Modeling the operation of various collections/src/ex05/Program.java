@@ -1,11 +1,17 @@
 package ex05;
 
+import ex05.transactions.Transaction;
+import ex05.transactions.TransactionsService;
+import ex05.users.exceptions.UserNotFoundException;
+import ex05.users.exceptions.IllegalBalanceException;
+import ex05.users.User;
+
 import java.util.Scanner;
 
 public class Program {
     private static boolean devMode = false;
-    private static Scanner scanner = new Scanner(System.in);
-    private static TransactionsService transactionsService
+    private static final Scanner scanner = new Scanner(System.in);
+    private static final TransactionsService transactionsService
             = new TransactionsService();
     private static String menu;
     private static int number = -1;
@@ -91,7 +97,7 @@ public class Program {
             System.out.println("User with id = "
                     + transactionsService.getNumberOfUsers()
                     + " is added");
-        } catch (User.IllegalBalance e) {
+        } catch (IllegalBalanceException e) {
             System.err.println(e.getMessage());
         }
         printLine();
@@ -110,7 +116,7 @@ public class Program {
             User user = transactionsService.getUserById(id);
             System.out.println(user.getName() + " - "
                     + user.getRemainingFunds());
-        } catch (UsersArrayList.UserNotFoundException e) {
+        } catch (UserNotFoundException e) {
             System.err.println(e.getMessage());
         }
         printLine();
@@ -135,7 +141,7 @@ public class Program {
             transactionsService.performTransaction(senderId,
                     recipiendId, amount);
             System.out.println("The transfer is completed");
-        } catch (UsersArrayList.UserNotFoundException |
+        } catch (UserNotFoundException |
                  IllegalAccessException e) {
             System.err.println(e.getMessage());
             printLine();
@@ -151,7 +157,7 @@ public class Program {
             System.err.println("The input is incorrect");
             System.exit(1);
         }
-        Transaction[] transactions = null;
+        Transaction[] transactions;
         try {
             transactions
                     = transactionsService.getTransactionsOfUser(id);

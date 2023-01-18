@@ -4,8 +4,7 @@ import java.util.Scanner;
 import static java.lang.Math.pow;
 
 public class Program {
-    private static Scanner scanner = new Scanner(System.in);
-    private static String string;
+    private static final Scanner scanner = new Scanner(System.in);
     private static long result = 0;
 
     public static void main(String[] args) {
@@ -18,7 +17,7 @@ public class Program {
 
     private static void parseStrings() {
         while (true) {
-            string = scanner.nextLine();
+            String string = scanner.nextLine();
             if (string.length() < 6
                     || !"Week ".equals(string.substring(0, 5))) {
                 if (string.equals("42")) {
@@ -28,7 +27,7 @@ public class Program {
                 System.exit(-1);
             }
 
-            String number_of_week_string = string.substring(5, string.length());
+            String number_of_week_string = string.substring(5);
             int number_of_week = 0;
             for (int i = 0; i < number_of_week_string.length(); ++i) {
                 char c = number_of_week_string.charAt(i);

@@ -1,5 +1,9 @@
 package ex03;
 
+import ex03.transactions.Transaction;
+import ex03.transactions.exceptions.TransactionNotFoundException;
+import ex03.users.User;
+
 import java.util.UUID;
 
 public class Program {
@@ -48,7 +52,7 @@ public class Program {
 
         try {
             foo.transactionsList.removeTransactionById("aboba");
-        } catch (TransactionsLinkedList.TransactionNotFoundException e) {
+        } catch (TransactionNotFoundException e) {
             System.err.println(e.getMessage());
         }
     }

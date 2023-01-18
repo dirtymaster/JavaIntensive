@@ -16,6 +16,7 @@ public class Program {
         readSignatures();
 
         readFiles();
+        printWriter.close();
     }
 
     private static void readSignatures() {
@@ -24,8 +25,8 @@ public class Program {
             fileScanner = new Scanner(signaturesFile);
             fileScanner.useDelimiter(",");
         } catch (Exception e) {
-            fileScanner.close();
             System.err.println("The file \"signatures.txt\" not found");
+            fileScanner.close();
             System.exit(1);
         }
         if (signaturesFile.length() == 0) {
@@ -95,11 +96,14 @@ public class Program {
                 fileInputStream.read(bytes);
             } catch (Exception e) {
                 fileScanner.close();
+                printWriter.close();
                 System.err.println("The file is incorrect");
                 System.exit(1);
             }
             if (bytes.length < minSignatureLength) {
                 fileScanner.close();
+                System.err.println(bytes.length);
+                System.err.println(minSignatureLength);
                 System.err.println("The file is too small");
                 System.exit(1);
             }
